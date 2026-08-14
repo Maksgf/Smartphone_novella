@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc1aac3f17a498db71d6fb246b0c5a1, type: 3}
+  m_Name: FantasyMessengerContent
+  m_EditorClassIdentifier: 
+  characters:
+  - id: miya
+    displayName: Мия
+    age: '27'
+    species: Кошколюдка
+    world: Лунный лицей
+    title: Архивистка луны
+    bio: Я собираю невозможные сноски и оставляю окно открытым для созвездий.
+    interests: [Старые карты, Лунный чай, Тайные двери]
+    palette: 0
+    reciprocal: 1
+    portrait: {fileID: 21300000, guid: 8a0d260c0cc44cda898d03de01bcfd31, type: 3}
+    opener: 'Привет :) Не ожидала, что ты тоже поставишь мне знак. Теперь мне правда интересно, какой ты.'
+    response: У тебя внимательный способ спрашивать. Я как раз нашла пометку о двери, которой нет ни на одной карте.
+    responseKind: 1
+    replyOptions:
+    - id: warm
+      body: Привет. Рад, что наши дороги всё-таки пересеклись.
+      affection: 5
+      xp: 5
+      requiresSkill: 0
+      requiredSkill: 0
+      requiredLevel: 1
+    - id: curious
+      body: Ты выглядишь интересно. Что ты нашла в архиве?
+      affection: 7
+      xp: 5
+      requiresSkill: 1
+      requiredSkill: 4
+      requiredLevel: 2
+    - id: flirt
+      body: Ты специально пытаешься заставить меня постоянно улыбаться?
+      affection: 10
+      xp: 10
+      requiresSkill: 1
+      requiredSkill: 0
+      requiredLevel: 2
+  - id: liara
+    displayName: Лиара
+    age: '25'
+    species: Эльфийка
+    world: Опушка Эшвуда
+    title: Хранительница троп
+    bio: После дождя пути слышнее. Я знаю, где начинаются почти все из них.
+    interests: [Грозы, Дикие тропы, Звёзды]
+    palette: 1
+    reciprocal: 1
+    portrait: {fileID: 21300000, guid: 9a2b340c1ab841a4af2af8ecb15c8a12, type: 3}
+    opener: Я рада, что ты ответил. В нашем лесу сегодня тихо — захотелось поделиться этим с кем-то.
+    response: После дождя лес пахнет мокрым камнем и хвоей. Иногда этого достаточно, чтобы не чувствовать себя одиноко.
+    responseKind: 2
+    replyOptions:
+    - id: gentle
+      body: Привет. Рад знакомству — у тебя очень спокойная энергия.
+      affection: 5
+      xp: 5
+      requiresSkill: 0
+      requiredSkill: 0
+      requiredLevel: 1
+    - id: weather
+      body: Расскажи, как пахнет лес после дождя.
+      affection: 7
+      xp: 5
+      requiresSkill: 1
+      requiredSkill: 2
+      requiredLevel: 2
+    - id: bold
+      body: Когда-нибудь покажешь мне свой любимый путь?
+      affection: 10
+      xp: 10
+      requiresSkill: 1
+      requiredSkill: 3
+      requiredLevel: 2
+  - id: astra
+    displayName: Астра
+    age: '26'
+    species: Странница
+    world: Седьмое небо
+    title: Гостья между мирами
+    bio: Я пришла с разбитым компасом и небом, которого здесь никто не помнит.
+    interests: [Другие миры, Сигнальные огни, Ночные поезда]
+    palette: 2
+    reciprocal: 1
+    portrait: {fileID: 21300000, guid: 7d1d5e3417bc4b5a972b91663f03c1c1, type: 3}
+    opener: Ты тоже это заметил? Будто сигнал между мирами на секунду стал яснее.
+    response: У нас небо было ближе — почти можно было дотронуться до его света. Спасибо, что спросил.
+    responseKind: 0
+    replyOptions:
+    - id: signal
+      body: Привет. Я тоже заметил твой сигнал среди остальных.
+      affection: 5
+      xp: 5
+      requiresSkill: 0
+      requiredSkill: 0
+      requiredLevel: 1
+    - id: world
+      body: Какое небо у тебя дома — и чего ты по нему скучаешь?
+      affection: 7
+      xp: 5
+      requiresSkill: 1
+      requiredSkill: 2
+      requiredLevel: 2
+    - id: spark
+      body: Кажется, у тебя самая опасная улыбка между мирами.
+      affection: 10
+      xp: 10
+      requiresSkill: 1
+      requiredSkill: 0
+      requiredLevel: 2
+  - id: lera
+    displayName: Лера
+    age: '26'
+    species: Человек
+    world: Вейлан
+    title: Картографка
+    bio: Я отмечаю на карте части города, которые появляются только после дождя.
+    interests: [Крыши, Речные пути, Несланные письма]
+    palette: 3
+    reciprocal: 0
+    portrait: {fileID: 21300000, guid: b144acd3a86a43dfa8df4284d6d0f9b3, type: 3}
+    opener: ''
+    response: ''
+    responseKind: 0
+    replyOptions: []
+  skills:
+  - id: 0
+    label: Flirt
+    glyph: ✦
+    description: Makes bold, warm answers more effective.
+  - id: 1
+    label: Messaging
+    glyph: ✉
+    description: Opens clearer ways to keep a conversation moving.
+  - id: 2
+    label: Empathy
+    glyph: ◌
+    description: Improves responses to emotional signals.
+  - id: 3
+    label: Confidence
+    glyph: ▲
+    description: Unlocks direct and daring reply options.
+  - id: 4
+    label: Attention
+    glyph: ⌁
+    description: Notices details and remembers what matters.
+  emails: [alex@veyla.demo, max@veil.demo, dan@ember.demo]
+  passwords: [moon-arc-47, ember-route-9, starling-22]
+  playerNames: [Alex, Max, Dan]
+  bios: [Люблю путешествовать и искать что-то новое., Немного странный, но вроде нормальный., Работаю, играю, иногда исчезаю.]

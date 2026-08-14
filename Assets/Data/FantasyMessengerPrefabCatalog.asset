@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf72c692f2e44959cb849d93a7ba884, type: 3}
+  m_Name: FantasyMessengerPrefabCatalog
+  m_EditorClassIdentifier: 
+  handsetShell: {fileID: 100000, guid: 3a67d5445f7345b991ab4effb1d6e1b0, type: 3}
+  discoverCard: {fileID: 300000, guid: 2e774cbf52c9480f9e0cefbf1f53c3b4, type: 3}
+  chatRow: {fileID: 400000, guid: 5dce0c6b7c8849e1b09424e7760e235a, type: 3}
+  replyOption: {fileID: 500000, guid: 603c4a2540184d6f8e4051a8d06dcb07, type: 3}
+  eventToast: {fileID: 600000, guid: a918c4d5a3704c8db135acb7d3325520, type: 3}

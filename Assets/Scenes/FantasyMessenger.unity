@@ -85,3 +85,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c5d0e3b1a74a7b9d6d45e9f50e31d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  veylanNightBackdrop: {fileID: 21300000, guid: 713f12e51ed74579a08f327601b1cf1e, type: 3}
+  emberOrbMark: {fileID: 21300000, guid: 25f0e44fd3f24cbeab233ced326ff090, type: 3}
+  miyaPortrait: {fileID: 21300000, guid: 8a0d260c0cc44cda898d03de01bcfd31, type: 3}
+  liaraPortrait: {fileID: 21300000, guid: 9a2b340c1ab841a4af2af8ecb15c8a12, type: 3}
+  astraPortrait: {fileID: 21300000, guid: 7d1d5e3417bc4b5a972b91663f03c1c1, type: 3}
+  leraPortrait: {fileID: 21300000, guid: b144acd3a86a43dfa8df4284d6d0f9b3, type: 3}

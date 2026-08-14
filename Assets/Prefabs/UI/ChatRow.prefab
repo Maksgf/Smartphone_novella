@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &400000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Component:
+  - component: {fileID: 400001}
+  - component: {fileID: 400002}
+  m_Layer: 5
+  m_Name: ChatRow
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!224 &400001
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 400000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400011}
+  - {fileID: 400021}
+  - {fileID: 400031}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 480, y: 84}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &400002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 400000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7a1c2b6d0c4a4b9b1f1b5d94c44a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kind: 2
+  editorPurpose: Inbox row with portrait, summary copy, time, and unread-count slots.
+--- !u!1 &400010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Component: [{component: {fileID: 400011}}]
+  m_Layer: 5
+  m_Name: PortraitSlot
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!224 &400011
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 400010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400001}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 45, y: 0}
+  m_SizeDelta: {x: 58, y: 58}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &400020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Component: [{component: {fileID: 400021}}]
+  m_Layer: 5
+  m_Name: CopySlot
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!224 &400021
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 400020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400001}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.2, y: 0.1}
+  m_AnchorMax: {x: 0.82, y: 0.9}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &400030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Component: [{component: {fileID: 400031}}]
+  m_Layer: 5
+  m_Name: UnreadSlot
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!224 &400031
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 400030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400001}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -28, y: 0}
+  m_SizeDelta: {x: 32, y: 32}
+  m_Pivot: {x: 0.5, y: 0.5}

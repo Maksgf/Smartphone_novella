@@ -21,6 +21,14 @@ namespace SmartphoneNovella
         private readonly Color ember = Hex("#c96e32");
         private readonly Color mulberry = Hex("#4d304d");
 
+        [Header("Project-local visual assets")]
+        [SerializeField] private Sprite veylanNightBackdrop;
+        [SerializeField] private Sprite emberOrbMark;
+        [SerializeField] private Sprite miyaPortrait;
+        [SerializeField] private Sprite liaraPortrait;
+        [SerializeField] private Sprite astraPortrait;
+        [SerializeField] private Sprite leraPortrait;
+
         private Canvas canvas;
         private CanvasScaler scaler;
         private RectTransform phone;
@@ -111,7 +119,14 @@ namespace SmartphoneNovella
             var backdrop = ImagePanel(canvas.transform, "Veylan Night", ink);
             Stretch(backdrop.rectTransform, 0f, 0f, 0f, 0f);
 
-            var horizon = ImagePanel(canvas.transform, "City Horizon", Hex("#0c1121"));
+            if (veylanNightBackdrop != null)
+            {
+                backdrop.sprite = veylanNightBackdrop;
+                backdrop.color = Color.white;
+                backdrop.preserveAspect = false;
+            }
+
+            var horizon = ImagePanel(canvas.transform, "City Horizon", veylanNightBackdrop != null ? new Color(.02f, .03f, .08f, .38f) : Hex("#0c1121"));
             Stretch(horizon.rectTransform, 0f, 0f, 0f, 0f);
             var moon = ImagePanel(horizon.transform, "Ember Moon", brass);
             Anchor(moon.rectTransform, .17f, .72f, 126f, 126f);
@@ -200,7 +215,13 @@ namespace SmartphoneNovella
             Anchor(notch.rectTransform, .5f, .88f, 136f, 26f);
             var mark = ImagePanel(header.transform, "Ember Signal", brass);
             Anchor(mark.rectTransform, .08f, .42f, 38f, 38f);
-            TextLabel(mark.transform, "✦", 24, Hex("#1f1205"), TextAnchor.MiddleCenter, FontStyle.Bold).rectTransform.Stretch();
+            if (emberOrbMark != null)
+            {
+                mark.sprite = emberOrbMark;
+                mark.color = Color.white;
+                mark.preserveAspect = true;
+            }
+            else TextLabel(mark.transform, "✦", 24, Hex("#1f1205"), TextAnchor.MiddleCenter, FontStyle.Bold).rectTransform.Stretch();
             var title = TextLabel(header.transform, currentView == View.Onboarding ? "DEMO v0.1\nСоздать аккаунт" : "Fantasy\nMESSENGER · ПРОЛОГ v0.1", currentView == View.Onboarding ? 23 : 17, parchment, TextAnchor.MiddleLeft, FontStyle.Bold);
             Anchor(title.rectTransform, .19f, .41f, 264f, 48f);
             var status = TextLabel(header.transform, currentView == View.Onboarding ? $"{onboardingStep + 1} / 3" : (string.IsNullOrWhiteSpace(notification) ? "◌ связь активна" : "✦ новое письмо"), 12, string.IsNullOrWhiteSpace(notification) ? muted : brass, TextAnchor.MiddleRight, FontStyle.Bold);
@@ -272,7 +293,14 @@ namespace SmartphoneNovella
             Stretch(card.rectTransform, 0f, 108f, 0f, 148f);
             var portrait = ImagePanel(card.transform, "Character Sigil", new Color(.04f, .05f, .10f, .72f));
             Anchor(portrait.rectTransform, .5f, .70f, 154f, 154f);
-            TextLabel(portrait.transform, "✦", 68, parchment, TextAnchor.MiddleCenter, FontStyle.Bold).rectTransform.Stretch();
+            Sprite candidatePortrait = PortraitFor(girl.name);
+            if (candidatePortrait != null)
+            {
+                portrait.sprite = candidatePortrait;
+                portrait.color = Color.white;
+                portrait.preserveAspect = true;
+            }
+            else TextLabel(portrait.transform, "✦", 68, parchment, TextAnchor.MiddleCenter, FontStyle.Bold).rectTransform.Stretch();
             var name = TextLabel(card.transform, $"{girl.name}, {girl.age}", 32, parchment, TextAnchor.MiddleCenter, FontStyle.Bold);
             Anchor(name.rectTransform, .5f, .47f, 340f, 46f);
             var role = TextLabel(card.transform, girl.role, 13, muted, TextAnchor.MiddleCenter, FontStyle.Normal);
@@ -460,6 +488,18 @@ namespace SmartphoneNovella
         {
             var choice = ButtonPanel(pageRoot, "Onboarding Choice", label, 15, selected ? new Color(brass.r, brass.g, brass.b, .18f) : new Color(.09f, .11f, .18f, 1f), parchment, action);
             Top(choice.GetComponent<RectTransform>(), top, 46f);
+        }
+
+        private Sprite PortraitFor(string displayName)
+        {
+            switch (displayName)
+            {
+                case "Мия": return miyaPortrait;
+                case "Лиара": return liaraPortrait;
+                case "Астра": return astraPortrait;
+                case "Лера": return leraPortrait;
+                default: return null;
+            }
         }
 
         private Image ImagePanel(Transform parent, string name, Color color)

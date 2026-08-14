@@ -10,13 +10,18 @@ The supplied repository is a clean **Unity 6.3 URP/2D** project. The web prototy
 | Babylon city backdrop | Runtime-built Veylan night silhouette with moon and lantern accents |
 | React state hook | `FantasyMessengerBootstrap` local runtime state |
 | Component screens | View enum plus runtime screen rendering methods |
-| Broken copied image paths | In-engine signal glyphs and stained-glass colour surfaces, with no external asset dependency |
+| Original web state data | `MessengerContentLibrary` ScriptableObject and `MessengerSession` state machine |
+| Broken copied image paths | Project-local ember mark, Veylan backdrop, and four SVG portrait assets, with no external asset dependency |
 
 ## Working with the project
 
 Open `Assets/Scenes/FantasyMessenger.unity` and press Play. The scene owns one bootstrap component. It constructs the canvas, event system, desktop stage, handset, and every interaction at runtime. The build settings already point to this scene.
 
 The project uses Unity’s Input System UI module so the generated buttons can receive pointer and touch input. Keep `com.unity.inputsystem` installed when updating packages.
+
+## Editable UI modules
+
+The `Assets/Prefabs/UI` folder contains the **Handset Shell**, **Discover Card**, **Chat Row**, **Reply Option**, and **Event Toast** modules. Each carries a `MessengerPrefabIdentity` marker and named child slots so a Unity designer can replace the runtime-built presentation module-by-module. `Assets/Data/FantasyMessengerPrefabCatalog.asset` is the central editor reference asset for this family.
 
 ## Recommended production split
 

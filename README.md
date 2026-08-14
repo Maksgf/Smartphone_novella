@@ -20,9 +20,11 @@ Open the repository with **Unity 6000.3.22f1**. The active build scene is `Asset
 | --- | --- |
 | `Assets/Scenes/FantasyMessenger.unity` | The enabled playable entry scene |
 | `Assets/Scripts/Runtime/FantasyMessengerBootstrap.cs` | UI creation, responsive handset geometry, demo state, and all current interactions |
+| `Assets/Scripts/Data/MessengerContentLibrary.cs` and `Assets/Scripts/Runtime/MessengerSession.cs` | Editable character, dialogue, skills, progression, settings, and asynchronous-chat model migrated into Unity-native code |
+| `Assets/Prefabs/UI/` | Editable Handset Shell, Discover Card, Chat Row, Reply Option, and Event Toast prefab modules |
+| `Assets/Art/` | Project-local ember mark, Veylan backdrop, and four original stained-glass character portrait assets |
 | `Docs/UNITY_SETUP.md` | Hand-off notes and a practical next implementation sequence |
 
 ## References
 
 [1] [Unity UI (uGUI) manual](https://docs.unity3d.com/Manual/UIToolkits.html)
-
