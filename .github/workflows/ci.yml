@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate project structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required Unity files
+        run: |
+          set -euo pipefail
+
+          echo "Checking core project files..."
+          test -f ProjectSettings/ProjectVersion.txt
+          test -f Packages/manifest.json
+          test -f Assets/Scenes/FantasyMessenger.unity
+          test -f Assets/Scripts/Runtime/FantasyMessengerBootstrap.cs
+          test -f Assets/Scripts/Runtime/MessengerSession.cs
+          test -f Assets/Scripts/Data/MessengerContentLibrary.cs
+          test -f README.md
+
+          echo "Checking Unity version..."
+          grep -q "6000.3.22f1" ProjectSettings/ProjectVersion.txt
+
+          echo "Checking key packages..."
+          grep -q "com.unity.inputsystem" Packages/manifest.json
+          grep -q "com.unity.render-pipelines.universal" Packages/manifest.json
+          grep -q "com.unity.ugui" Packages/manifest.json
+
+          echo "Project structure looks good."
+
+      - name: List C# scripts
+        run: |
+          echo "C# scripts in the project:"
+          find Assets/Scripts -name "*.cs" | sort
+
+  # Full Unity build (requires license secrets).
+  # Enable this job after adding the secrets described in Docs/CI.md
+  build:
+    name: Build (Unity)
+    runs-on: ubuntu-latest
+    needs: validate
+    if: ${{ false }}  # set to true (or remove this line) after configuring Unity license secrets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Cache Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      - name: Build
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneWindows64
+          unityVersion: 6000.3.22f1
+          buildName: FantasyMessenger
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build-StandaloneWindows64
+          path: build
